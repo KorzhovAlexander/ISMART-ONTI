@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using MediatR;
 using Shouldly;
 
 namespace AppExample.Tests
 {
-    using static System.Environment;
+    using static Environment;
     using static Testing;
 
     public static class Assertions
@@ -27,28 +29,6 @@ namespace AppExample.Tests
 
         public static void ShouldNotValidate<TResult>(this IRequest<TResult> message, params string[] expectedErrors)
             => Validation(message).ShouldBeFailure(expectedErrors);
-
-        public static void ShouldBeSuccessful(this ValidationResult result)
-        {
-            var indentedErrorMessages = result
-                .Errors
-                .OrderBy(x => x.ErrorMessage)
-                .Select(x => "    " + x.ErrorMessage)
-                .ToArray();
-
-            var actual = String.Join(NewLine, indentedErrorMessages);
-
-            result.IsValid.ShouldBeTrue($"Expected no validation errors, but found {result.Errors.Count}:{NewLine}{actual}");
-        }
-
-        public static void ShouldBeFailure(this ValidationResult result, params string[] expectedErrors)
-        {
-            result.IsValid.ShouldBeFalse("Expected validation errors, but the message passed validation.");
-
-            result.Errors
-                .OrderBy(x => x.ErrorMessage)
-                .Select(x => x.ErrorMessage)
-                .ShouldMatch(expectedErrors.OrderBy(x => x).ToArray());
-        }
+        
     }
 }

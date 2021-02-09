@@ -1,4 +1,6 @@
-﻿namespace AppExample.Tests
+﻿using AutoMapper;
+
+namespace AppExample.Tests
 {
     using static Testing;
 
