@@ -138,7 +138,7 @@ export default {
       }).then(() => {
         // https://github.com/exceljs/exceljs#writing-xlsx
         workbook.xlsx.writeBuffer().then((buffer) => {
-          saveAs(new Blob([buffer], {type: 'application/octet-stream'}), 'ELITE_Export.xlsx');
+          saveAs(new Blob([buffer], {type: 'application/octet-stream'}), 'I-SMART_Export.xlsx');
         });
       });
       e.cancel = true;

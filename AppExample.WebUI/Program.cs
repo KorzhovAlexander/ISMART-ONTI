@@ -32,6 +32,9 @@ namespace AppExample.WebUI
                     if (context.Database.IsInMemory())
                     {
                         logger.LogInformation("InMemoryDb");
+                        logger.LogInformation("Start db migration");
+                        await GenerateLocalInMemoryData(services, context);
+                        logger.LogInformation("End db migration");
                     }
                     else
                     {
@@ -46,6 +49,48 @@ namespace AppExample.WebUI
             }
 
             await host.RunAsync();
+        }
+
+        private static async Task GenerateLocalInMemoryData(IServiceProvider services, ApplicationDbContext context)
+        {
+            var roleManager = services.GetService<RoleManager<IdentityRole<int>>>();
+            var userManager = services.GetService<UserManager<ApplicationUser>>();
+
+            var roles = new[]
+            {
+                RolesEnum.Admin,
+                RolesEnum.User,
+            };
+
+            var hasher = new PasswordHasher<ApplicationUser>();
+
+            foreach (var role in roles)
+            {
+                var identityRole = new IdentityRole<int>
+                {
+                    Id = (int) role,
+                    Name = role.ToString(),
+                    NormalizedName = role.ToString().ToUpper()
+                };
+
+                var user = new ApplicationUser
+                {
+                    Id = (int) role,
+                    UserName = $"{role.ToString()}@yandex.ru",
+                    Email = $"{role.ToString()}@yandex.ru",
+                    NormalizedUserName = role.ToString().ToUpper(),
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, role.ToString().ToLower()),
+                    LockoutEnabled = true,
+                    SecurityStamp = Guid.NewGuid().ToString("D"),
+                };
+
+                await roleManager.CreateAsync(identityRole);
+                await userManager.CreateAsync(user);
+                await userManager.AddToRoleAsync(user, role.ToString());
+            }
+
+            await context.SaveChangesAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

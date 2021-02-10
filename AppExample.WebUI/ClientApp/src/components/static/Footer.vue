@@ -1,7 +1,7 @@
 <template>
   <div class="content-block">
     <footer class="footer">
-      Copyright ELITE ONTI TEAM  © {{new Date().getFullYear()}}
+      Copyright I-SMART ONTI TEAM  © {{new Date().getFullYear()}}
     </footer>
   </div>
 </template>
