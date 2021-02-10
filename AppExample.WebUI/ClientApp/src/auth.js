@@ -23,7 +23,7 @@ export default {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({userName: email, password: password, rememberMe: false})
+            body: JSON.stringify({email: email, password: password, rememberMe: false})
         })
             .then((e) => {
                 if (e.ok) {
@@ -135,7 +135,7 @@ export default {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                userName: email,
+                email: email,
                 password: password,
                 confirmPassword: password
             })

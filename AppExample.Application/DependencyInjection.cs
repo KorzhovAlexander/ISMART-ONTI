@@ -30,7 +30,7 @@ namespace AppExample.Application
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-                        i => i.MigrationsAssembly("LogisticService.WebUI")));
+                        i => i.MigrationsAssembly("AppExample.WebUI")));
             }
 
             return services;

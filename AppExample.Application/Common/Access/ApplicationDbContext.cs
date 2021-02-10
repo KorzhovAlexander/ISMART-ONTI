@@ -33,59 +33,14 @@ namespace AppExample.Application.Common.Access
                 new IdentityRole<int>
                 {
                     Id = 1,
-                    Name = "Manager",
-                    NormalizedName = "Manager".ToUpper()
+                    Name = "Admin",
+                    NormalizedName = "admin".ToUpper()
                 },
                 new IdentityRole<int>
                 {
                     Id = 2,
-                    Name = "Client",
-                    NormalizedName = "Client".ToUpper()
-                },
-                new IdentityRole<int>
-                {
-                    Id = 3,
-                    Name = "Courier",
-                    NormalizedName = "Courier".ToUpper()
-                }
-            });
-
-            builder.Entity<Unit>().HasData(new List<Unit>
-            {
-                new Unit
-                {
-                    Id = 1,
-                    FullName = "Грамм",
-                    ShortName = "гр",
-                    Description = "Грамм"
-                },
-                new Unit
-                {
-                    Id = 2,
-                    FullName = "Килограмм",
-                    ShortName = "кг",
-                    Description = "Килограмм"
-                },
-                new Unit
-                {
-                    Id = 3,
-                    FullName = "Метр",
-                    ShortName = "м",
-                    Description = "Метр"
-                },
-                new Unit
-                {
-                    Id = 4,
-                    FullName = "Штука",
-                    ShortName = "шт",
-                    Description = "Штука"
-                },
-                new Unit
-                {
-                    Id = 5,
-                    FullName = "Кубический метр",
-                    ShortName = "куб. м",
-                    Description = "Кубический метр"
+                    Name = "User",
+                    NormalizedName = "User".ToUpper()
                 }
             });
             
@@ -94,31 +49,12 @@ namespace AppExample.Application.Common.Access
                 new ApplicationUser
                 {
                     Id = 1,
-                    UserName = "Manager",
-                    NormalizedUserName = "Manager".ToUpper(),
+                    UserName = "email.for.testing.v1@gmail.com",
+                    Email = "email.for.testing.v1@gmail.com",
+                    NormalizedUserName = "email.for.testing.v1@gmail.com".ToUpper(),
                     EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "manager"),
-                    LockoutEnabled = true,
-                    SecurityStamp = Guid.NewGuid().ToString("D"),
-                },
-                new ApplicationUser
-                {
-                    Id = 2,
-                    UserName = "Client",
-                    NormalizedUserName = "Client".ToUpper(),
-                    EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "client"),
-                    LockoutEnabled = true,
-                    SecurityStamp = Guid.NewGuid().ToString("D"),
-                },
-                new ApplicationUser
-                {
-                    Id = 3,
-                    UserName = "Courier",
-                    NormalizedUserName = "Courier".ToUpper(),
-                    EmailConfirmed = true,
-                    PasswordHash = hasher.HashPassword(null, "courier"),
-                    LockoutEnabled = true,
+                    PasswordHash = hasher.HashPassword(null, "administrator"),
+                    LockoutEnabled = false,
                     SecurityStamp = Guid.NewGuid().ToString("D"),
                 }
             });
@@ -129,16 +65,6 @@ namespace AppExample.Application.Common.Access
                 {
                     RoleId = 1,
                     UserId = 1
-                },
-                new IdentityUserRole<int>
-                {
-                    RoleId = 2,
-                    UserId = 2
-                },
-                new IdentityUserRole<int>
-                {
-                    RoleId = 3,
-                    UserId = 3
                 }
             });
 

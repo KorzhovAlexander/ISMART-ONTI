@@ -6,6 +6,7 @@ import feedback from '../views/feedback.vue'
 import simpleLayout from "../layouts/single-card";
 import login from "../views/login-form";
 import register from "../views/create-account-form";
+import confirmEmail from '../views/confirm-email'
 
 import defaultLayout from "../components/static/SideNavOuterToolbar";
 
@@ -26,6 +27,14 @@ const routes = [
     components: {
       layout: defaultLayout,
       content: cart
+    }
+  },
+  {
+    path: '/confirm-email',
+    name: 'confirm-email',
+    components: {
+      layout: defaultLayout,
+      content: confirmEmail
     }
   },
   {

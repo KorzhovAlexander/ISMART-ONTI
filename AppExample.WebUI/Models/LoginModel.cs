@@ -1,8 +1,14 @@
-﻿namespace AppExample.WebUI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AppExample.WebUI.Models
 {
     public class LoginModel
     {
-        public string UserName { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+        
+        [Required]
         public string Password { get; set; }
         
         public bool RememberMe { get; set; }

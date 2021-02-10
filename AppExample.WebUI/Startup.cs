@@ -30,11 +30,18 @@ namespace AppExample.WebUI
             services.AddApplication();
             services.AddInfrastructure(Configuration);
 
+            services.AddScoped<EmailSenderService>();
+            
             services.AddIdentity<ApplicationUser, IdentityRole<int>>(options =>
                 {
                     options.SignIn.RequireConfirmedAccount = true;
+                    options.SignIn.RequireConfirmedEmail = true;
+                    options.Lockout.AllowedForNewUsers = true;
+                    options.Lockout.MaxFailedAccessAttempts = 3;
+                    options.User.RequireUniqueEmail = true;
                 })
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();;
 
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
 

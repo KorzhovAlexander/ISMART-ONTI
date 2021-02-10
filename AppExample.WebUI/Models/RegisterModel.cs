@@ -5,7 +5,8 @@ namespace AppExample.WebUI.Models
     public class RegisterModel
     {
         [Required]
-        public string UserName { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
         
         [Required]
         [StringLength(100, ErrorMessage = "Длина пароля должна быть от 6 до 100 символов",

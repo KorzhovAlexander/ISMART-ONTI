@@ -8,13 +8,14 @@
       >
         <dx-required-rule message="Имя пользователя обязательно" />
         <dx-label :visible="false" />
+        <dx-email-rule message="Неверный Email"/>
       </dx-item>
       <dx-item
         data-field='password'
         editor-type='dxTextBox'
         :editor-options="{ stylingMode: 'filled', placeholder: 'Пароль', mode: 'password' }"
       >
-        <dx-required-rule message="Password is required" />
+        <dx-required-rule message="Пароль обязателен" />
         <dx-label :visible="false" />
       </dx-item>
       <dx-item
