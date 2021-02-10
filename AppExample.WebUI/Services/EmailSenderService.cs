@@ -30,7 +30,7 @@ namespace AppExample.WebUI.Services
             {
                 await client.ConnectAsync("smtp.gmail.com", 465, true);
                 //ToDo: нужно указать пароль)
-                await client.AuthenticateAsync("email.for.testing.v1@gmail.com", "NB7-8Nx-qQK-trH");
+                await client.AuthenticateAsync("email.for.testing.v1@gmail.com", "пароль");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
