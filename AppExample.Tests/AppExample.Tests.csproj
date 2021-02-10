@@ -12,4 +12,7 @@
         <PackageReference Include="Shouldly" Version="4.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\AppExample.WebUI\AppExample.WebUI.csproj" />
+    </ItemGroup>
 </Project>

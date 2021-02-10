@@ -2,6 +2,11 @@
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using AppExample.WebUI;
+using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace AppExample.Tests
 {

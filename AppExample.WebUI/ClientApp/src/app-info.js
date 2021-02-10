@@ -1,4 +1,4 @@
 export default {
-  title: "Логистика",
-  navTitle: "Логистика"
+  title: "АвтоматСкладРФ",
+  navTitle: "АвтоматСкладРФ"
 };

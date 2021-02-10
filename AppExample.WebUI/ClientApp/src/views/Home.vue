@@ -4,19 +4,24 @@
     <div class="content-block">
       <div class="dx-card responsive-paddings">
         <div class="logos-container">
-          <h2 class="content-block">Команда ELITE</h2>
+          <h2 class="content-block">Команда I-SMART</h2>
         </div>
 
-        <p>
-          Мы команда с Архаглельской обл.
-        </p>
-        <p>Наш состав:</p>
+        <p>Cостав:</p>
         <ul>
           <li>
-            <a href="https://vk.com/vypolzov0" target="_blank" rel="noopener noreferrer">Выползов Юрий</a> Программист
+            <a href="https://vk.com/p_kras" target="_blank" rel="noopener noreferrer">Краснов Павел</a> Тим-лидер
           </li>
           <li>
-            <a href="https://vk.com/solifax" target="_blank" rel="noopener noreferrer">Коржов Александр</a> Программист
+            <a href="https://vk.com/id67823481" target="_blank" rel="noopener noreferrer">Парфенов Павел</a> Программист взаимодействия
+            электронных устройств
+          </li>
+          <li>
+            <a href="https://vk.com/vypolzov0" target="_blank" rel="noopener noreferrer">Выползов Юрий</a> Программист бэк-энд уровня
+          </li>
+          <li>
+            <a href="https://vk.com/solifax" target="_blank" rel="noopener noreferrer">Коржов Александр</a> Программист верхнего уровня
+            (веб-система)
           </li>
         </ul>
 
